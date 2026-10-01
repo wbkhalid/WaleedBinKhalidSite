@@ -40,6 +40,7 @@ export const projects: Project[] = [
       "Analytics with Excel and PDF exports",
       "PTCL live video hearings",
     ],
+    impact: "Live across Punjab.",
     technologies: ["Next.js", "TypeScript", "Redux Toolkit", "React Hook Form", "Zod", "Google Maps API", "jsPDF", "xlsx"],
     featured: true,
     visual: "map",

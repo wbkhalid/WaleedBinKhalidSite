@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/ui/Reveal";
-import { profile } from "@/data/profile";
+import { profile, whatsappUrl } from "@/data/profile";
 
 export function Contact() {
   return (
@@ -29,7 +29,7 @@ export function Contact() {
           </a>
         </div>
         <div className="contact-details">
-          <a href={`tel:${profile.phone.replace(/\s/g, "")}`}>{profile.phone}</a>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label={`Chat on WhatsApp: ${profile.phone}`}>{profile.phone}</a>
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
           <span>{profile.location}</span>
         </div>

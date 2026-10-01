@@ -21,3 +21,5 @@ export const profile = {
     { value: "70%", label: "Admin workload reduced" },
   ],
 } as const;
+
+export const whatsappUrl = `https://wa.me/${profile.phone.replace(/\D/g, "")}`;

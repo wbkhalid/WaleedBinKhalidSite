@@ -1,4 +1,4 @@
-import { profile } from "@/data/profile";
+import { profile, whatsappUrl } from "@/data/profile";
 import Link from "next/link";
 
 export function Footer() {
@@ -13,7 +13,7 @@ export function Footer() {
           Designed &amp; built by {profile.name} · {new Date().getFullYear()}
         </p>
         <div className="footer-links">
-          <a href={`tel:${profile.phone.replace(/\s/g, "")}`}>{profile.phone}</a>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label={`Chat on WhatsApp: ${profile.phone}`}>{profile.phone}</a>
           <a href={profile.linkedin} target="_blank" rel="noreferrer">
             LinkedIn
           </a>

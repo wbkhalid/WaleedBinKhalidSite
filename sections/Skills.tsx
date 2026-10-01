@@ -1,7 +1,7 @@
+import { SkillCategory } from "@/components/portfolio/SkillCategory";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { TechBadge } from "@/components/ui/TechBadge";
-import { skillGroups } from "@/data/skills";
+import { capabilities, skillGroups } from "@/data/skills";
 
 export function Skills() {
   return (
@@ -20,18 +20,25 @@ export function Skills() {
             key={group.title}
             delay={index * 0.03}
           >
-            <h3>
-              <span>{">"}</span>
-              {group.title}
-            </h3>
-            <div className="skill-tile-grid">
-              {group.items.map((item) => (
-                <TechBadge key={item}>{item}</TechBadge>
-              ))}
-            </div>
+            <SkillCategory {...group} />
           </Reveal>
         ))}
       </div>
+      <Reveal className="capabilities">
+        <div className="capability-head">
+          <span>Frontend strengths</span>
+          <i>WHAT I SHIP</i>
+        </div>
+        <div className="capability-grid">
+          {capabilities.map((capability, index) => (
+            <div className="capability" key={capability}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{capability}</strong>
+              <i>+</i>
+            </div>
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }

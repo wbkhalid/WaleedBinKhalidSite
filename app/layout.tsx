@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wbkhalid.netlify.app"),
-  title: "Waleed Bin Khalid | Frontend Developer",
+  title: { default: "Waleed Bin Khalid | Frontend Developer", template: "%s | Waleed Bin Khalid" },
   description:
     "Frontend Developer in Lahore building production dashboards, government systems, and responsive business applications with React, Next.js, and TypeScript.",
   openGraph: {

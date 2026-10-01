@@ -1,3 +1,13 @@
+import type { StaticImageData } from "next/image";
+import cpd from "@/public/projects/cpd.webp";
+import cpdDashboard from "@/public/projects/cpd-dashboard.webp";
+import gymkhana from "@/public/projects/gymkhana.webp";
+import ramadan from "@/public/projects/ramadan.webp";
+import storyMagician from "@/public/projects/story-magician.webp";
+import textopia from "@/public/projects/textopia.webp";
+import musketeers from "@/public/projects/musketeers.webp";
+import stickball from "@/public/projects/stickball.webp";
+
 export type Project = {
   name: string;
   category: string;
@@ -8,6 +18,12 @@ export type Project = {
   featured: boolean;
   impact?: string;
   visual: "map" | "membership" | "monitoring" | "story" | "video" | "website";
+  mockup?: {
+    main: StaticImageData;
+    alt: string;
+    secondary?: StaticImageData[];
+    variant?: "browser" | "showcase" | "layered";
+  };
 };
 
 export const projects: Project[] = [
@@ -27,6 +43,12 @@ export const projects: Project[] = [
     technologies: ["Next.js", "TypeScript", "Redux Toolkit", "React Hook Form", "Zod", "Google Maps API", "jsPDF", "xlsx"],
     featured: true,
     visual: "map",
+    mockup: {
+      main: cpd,
+      secondary: [cpdDashboard],
+      variant: "layered",
+      alt: "CPD complaint management dashboard interface",
+    },
   },
   {
     name: "Gymkhana Club Management Platform",
@@ -45,6 +67,11 @@ export const projects: Project[] = [
     featured: true,
     impact: "Live across 12 cities in Punjab; the web portal reduced administrative workload by 70%.",
     visual: "membership",
+    mockup: {
+      main: gymkhana,
+      variant: "showcase",
+      alt: "Gymkhana club management platform dashboard",
+    },
   },
   {
     name: "Ramadan Dastarkhwan Monitoring System",
@@ -62,6 +89,11 @@ export const projects: Project[] = [
     technologies: ["Next.js 16", "TypeScript", "Redux Toolkit", "React Hook Form", "Zod", "Google Places Autocomplete"],
     featured: true,
     visual: "monitoring",
+    mockup: {
+      main: ramadan,
+      variant: "showcase",
+      alt: "Ramadan Dastarkhwan monitoring system interface",
+    },
   },
   {
     name: "Story Magician",
@@ -72,6 +104,11 @@ export const projects: Project[] = [
     technologies: ["React", "Material UI", "PageFlip", "Microsoft Cognitive Services", "Stripe API", "Context API", "Axios"],
     featured: false,
     visual: "story",
+    mockup: {
+      main: storyMagician,
+      variant: "showcase",
+      alt: "Story Magician AI storybook platform preview",
+    },
   },
   {
     name: "Voice to Vision - Textopia",
@@ -82,6 +119,11 @@ export const projects: Project[] = [
     technologies: ["React.js", "OpenAI API", "ElevenLabs", "Stable Diffusion", "Responsive Web Design"],
     featured: false,
     visual: "video",
+    mockup: {
+      main: textopia,
+      variant: "showcase",
+      alt: "Textopia AI text-to-video product preview",
+    },
   },
   {
     name: "Software House Portfolio Website",
@@ -92,6 +134,11 @@ export const projects: Project[] = [
     technologies: ["Next.js", "JavaScript", "Semantic HTML", "SEO"],
     featured: false,
     visual: "website",
+    mockup: {
+      main: musketeers,
+      variant: "showcase",
+      alt: "Software house portfolio website preview",
+    },
   },
   {
     name: "Asian Wok",
@@ -112,6 +159,11 @@ export const projects: Project[] = [
     technologies: ["React.js", "Next.js", "JavaScript", "Material UI", "Responsive Design"],
     featured: false,
     visual: "website",
+    mockup: {
+      main: stickball,
+      variant: "showcase",
+      alt: "Stickball product redesign website preview",
+    },
   },
 ];
 

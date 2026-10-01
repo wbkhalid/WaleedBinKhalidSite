@@ -1,26 +1,18 @@
+import { ProjectMockup } from "@/components/portfolio/ProjectMockup";
 import type { Project } from "@/data/projects";
 
-export function ProjectVisual({ project }: { project: Project }) {
-  if (project.visual === "map") {
-    return <div className="project-visual map-visual" aria-label="Replaceable CPD dashboard preview"><div className="preview-label">Dashboard preview</div><div className="map-grid" /><span className="pin p1" /><span className="pin p2" /><span className="pin p3" /><div className="map-panel"><b>Complaint density</b><span><i />Resolved <strong>Overview</strong></span><span><i />In review <strong>Live map</strong></span></div></div>;
-  }
-  if (project.visual === "membership") {
-    return <div className="project-visual member-visual" aria-label="Replaceable Gymkhana dashboard preview"><div className="preview-label">Platform preview</div><div className="member-sidebar">WBK<br/><i/><i/><i/><i/></div><div className="member-main"><span>Membership overview</span><div className="member-kpis"><b>Members</b><b>Billing</b><b>Rooms</b></div><div className="member-table"><i/><i/><i/><i/></div></div></div>;
-  }
-  if (project.visual === "monitoring") {
-    return <div className="project-visual monitoring-visual" aria-label="Replaceable Ramadan monitoring preview"><div className="preview-label">Field app preview</div><div className="phone"><span>Inspection</span><b>Step 2 of 3</b><div className="steps"><i/><i/><i/></div><em>Location verified</em><p>Evidence and beneficiary details</p><button type="button" tabIndex={-1}>Continue inspection</button></div><div className="districts"><b>District reporting</b><span>Lahore <i /></span><span>Faisalabad <i /></span><span>Rawalpindi <i /></span></div></div>;
-  }
+export function ProjectVisual({ project, priority = false }: { project: Project; priority?: boolean }) {
+  if (!project.mockup) return null;
   return (
-    <div className={`project-visual product-visual ${project.visual}-visual`} aria-label={`${project.name} project preview`}>
-      <div className="preview-label">Project preview</div>
-      <div className="product-window">
-        <div className="product-window-bar"><i /><i /><i /></div>
-        <div className="product-window-body">
-          <span>{project.category}</span>
-          <strong>{project.name}</strong>
-          <div className="product-lines"><i /><i /><i /></div>
-        </div>
-      </div>
-    </div>
+    <a className="project-visual" href={project.mockup.main.src} target="_blank" rel="noreferrer" aria-label={`Open full-size preview of ${project.name} (opens in a new tab)`} title="Open full-size preview">
+      <ProjectMockup
+        mainImage={project.mockup?.main}
+        secondaryImages={project.mockup?.secondary}
+        alt={project.mockup?.alt ?? `${project.name} project preview`}
+        title={project.name}
+        variant={project.mockup?.variant}
+        priority={priority}
+      />
+    </a>
   );
 }

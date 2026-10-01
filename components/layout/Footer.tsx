@@ -13,12 +13,12 @@ export function Footer() {
           Designed &amp; built by {profile.name} · {new Date().getFullYear()}
         </p>
         <div className="footer-links">
-          <a>{profile.phone}</a>
+          <a href={`tel:${profile.phone.replace(/\s/g, "")}`}>{profile.phone}</a>
           <a href={profile.linkedin} target="_blank" rel="noreferrer">
             LinkedIn
           </a>
           <a href={`mailto:${profile.email}`}>Email</a>
-          <Link href="/">Back to top</Link>
+          <Link href="#main">Back to top</Link>
         </div>
       </div>
     </footer>

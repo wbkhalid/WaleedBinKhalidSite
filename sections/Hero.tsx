@@ -6,17 +6,22 @@ import Link from "next/link";
 import { profile } from "@/data/profile";
 
 function PortraitVisual() {
+  const reduce = useReducedMotion();
   return (
     <motion.div
       className="hero-portrait"
-      initial={{ opacity: 0, scale: 0.96, y: 18 }}
+      initial={false}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        duration: reduce ? 0 : 0.9,
+        delay: reduce ? 0 : 0.25,
+        ease: [0.22, 1, 0.36, 1],
+      }}
     >
       <div className="portrait-backdrop" aria-hidden="true" />
       <div className="portrait-frame">
         <Image
-          src="/profile.jpeg"
+          src="/portfolio.png"
           alt={`${profile.name}, ${profile.title}`}
           width={450}
           height={570}
@@ -45,7 +50,7 @@ export function Hero() {
       <div className="hero-glow" aria-hidden="true" />
       <motion.div
         className="hero-copy"
-        initial="hidden"
+        initial={false}
         animate="visible"
         transition={{ staggerChildren: 0.1 }}
       >
@@ -62,8 +67,9 @@ export function Hero() {
           </em>
         </motion.h1>
         <motion.p className="hero-intro" variants={item}>
-          {profile.hero} I work with React, Next.js, and TypeScript to deliver
-          dashboards, workflows, and responsive business applications.
+          Frontend Developer with 2+ years of experience building production
+          dashboards and business applications with React, Next.js, and
+          TypeScript.
         </motion.p>
         <motion.div className="hero-actions" variants={item}>
           <Link className="button primary" href="/projects">

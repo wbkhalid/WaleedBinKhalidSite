@@ -12,7 +12,7 @@ export function ExperiencePreview() {
         <SectionHeading
           eyebrow="Experience"
           title="Frontend work that stays close to real operations."
-          description="A compact view of my recent work. The full timeline, education, and engineering approach live on the About page."
+          description="Production frontend delivery across government platforms, AI products, and business applications."
         />
       </Reveal>
       <Reveal className="experience-preview-card" delay={0.08}>

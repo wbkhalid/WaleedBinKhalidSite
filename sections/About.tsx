@@ -7,7 +7,7 @@ const focus = ["Government systems", "Business dashboards", "Form-heavy workflow
 export function About() {
   return (
     <section id="about" className="section-shell about-grid">
-      <Reveal><SectionHeading eyebrow="About" title="Complex requirements, made usable." /></Reveal>
+      <Reveal><SectionHeading as="h1" eyebrow="About" title="Complex requirements, made usable." /></Reveal>
       <Reveal className="about-copy" delay={0.08}>
         {profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         <div className="focus-list">{focus.map((item, index) => <span key={item}><i>0{index + 1}</i>{item}</span>)}</div>

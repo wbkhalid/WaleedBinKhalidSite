@@ -10,7 +10,7 @@ export function Contact() {
           <span />
           Contact
         </p>
-        <h2>Let&apos;s build something that has to work.</h2>
+        <h1>Let&apos;s build something useful.</h1>
         <p>
           I&apos;m open to frontend opportunities and product work involving
           complex workflows, dashboards, and high-quality responsive interfaces.
@@ -29,8 +29,8 @@ export function Contact() {
           </a>
         </div>
         <div className="contact-details">
-          <span>{profile.phone}</span>
-          <span>{profile.email}</span>
+          <a href={`tel:${profile.phone.replace(/\s/g, "")}`}>{profile.phone}</a>
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
           <span>{profile.location}</span>
         </div>
       </Reveal>
